@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import base64
 import email
 from google_auth_oauthlib.flow import InstalledAppFlow
