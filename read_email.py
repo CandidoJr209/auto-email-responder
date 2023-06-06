@@ -8,7 +8,8 @@ from googleapiclient.discovery import build
 # Set up the OAuth 2.0 authorization flow
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-creds = flow.run_local_server(port=0)
+flow.redirect_uri = 'http://localhost:3000/'
+creds = flow.run_local_server(port=3000)
 
 # Create a Gmail API service instance
 service = build('gmail', 'v1', credentials=creds)
