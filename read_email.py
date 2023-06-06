@@ -4,6 +4,9 @@ import base64
 import email
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
+from dotenv import load_dotenv
+
+load_dotenv()
 
 SCOPES = os.getenv('SCOPES').split(',')
 REDIRECT_URI = os.getenv('REDIRECT_URI')
@@ -13,7 +16,7 @@ PORT = os.getenv('PORT')
 # Set up the OAuth 2.0 authorization flow
 flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
 flow.redirect_uri = REDIRECT_URI
-creds = flow.run_local_server(port=PORT)
+creds = flow.run_local_server(port=int(PORT))
 
 # Create a Gmail API service instance
 service = build('gmail', 'v1', credentials=creds)

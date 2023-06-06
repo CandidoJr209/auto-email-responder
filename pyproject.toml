@@ -8,6 +8,7 @@ authors = ["Cândido <candido101209@gmail.com>"]
 python = "^3.8"
 google-auth-oauthlib = "^1.0.0"
 google-api-python-client = "^2.88.0"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 
