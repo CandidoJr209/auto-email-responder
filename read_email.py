@@ -1,15 +1,19 @@
 #!/usr/bin/env python
-
+import os
 import base64
 import email
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+SCOPES = os.getenv('SCOPES').split(',')
+REDIRECT_URI = os.getenv('REDIRECT_URI').split(',')
+PORT = os.getenv('PORT').split(',')
+
+
 # Set up the OAuth 2.0 authorization flow
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-flow.redirect_uri = 'http://localhost:3000/'
-creds = flow.run_local_server(port=3000)
+flow.redirect_uri = REDIRECT_URI
+creds = flow.run_local_server(port=PORT)
 
 # Create a Gmail API service instance
 service = build('gmail', 'v1', credentials=creds)
