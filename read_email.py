@@ -6,8 +6,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 SCOPES = os.getenv('SCOPES').split(',')
-REDIRECT_URI = os.getenv('REDIRECT_URI').split(',')
-PORT = os.getenv('PORT').split(',')
+REDIRECT_URI = os.getenv('REDIRECT_URI')
+PORT = os.getenv('PORT')
 
 
 # Set up the OAuth 2.0 authorization flow
