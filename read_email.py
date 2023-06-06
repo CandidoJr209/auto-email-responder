@@ -18,7 +18,7 @@ creds = flow.run_local_server(port=PORT)
 # Create a Gmail API service instance
 service = build('gmail', 'v1', credentials=creds)
 
-# Define the Gmail search query to retrieve the latest 10 emails
+# Define the Gmail search query to retrieve the latest emails
 query = "in:inbox"
 result = service.users().messages().list(userId='me', maxResults=1, q=query).execute()
 messages = result.get('messages', [])
